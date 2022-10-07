@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        {#$(document).ready(function () {#}
+        {#    get_list()#}
+        {#})#}
+
+            function get_list() {
+                $("#gu-list").empty()
+                $.ajax({
+                    type: "GET",
+                    url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",
+                    data: {},
+                    success: function (response) {
+                        let rows = response["RealtimeCityAir"]["row"];
+                        for (let i = 0; i < rows.length; i++) {
+                            let gu_name = rows[i]["MSRSTE_NM"]
+                            let gu_mise = rows[i]["IDEX_MVL"]
+                            if (gu_mise >= 50) {
+                                let html_temp = `<li>${gu_name}: ${gu_mise}</li>`
+                                $("#gu-list").append(html_temp)
+                            }
+                        }
+                    }
+                })
+            }
+    </script>
+    </script>
+    </script>
+</head>
+<body>
+<h1>상세페이지</h1>
+<button onclick="window.location.href = '/'">메인으로 돌아가기</button>
+<ul id="gu-list">
+    <li>중구: 50</li>
+</ul>
+
+</ul>
+</body>
+</html>

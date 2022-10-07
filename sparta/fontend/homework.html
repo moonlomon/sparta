@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <title>미니팬카페 - 방명록페이지</title>
+
+    <style>
+       .title {
+           background-size: 100%;
+           height: 250px;
+           color: white;
+
+           background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://postfiles.pstatic.net/MjAyMjA1MDNfMjI4/MDAxNjUxNTQwNjU3NDgx.gSWF3DM7vcpcf5lB7NTZdLozyn1SmwrBJpIq2kelLQUg.5Z1-gXXamEnsETNc5nyJrlNvXpxk3gMbpw7-pYrkNeAg.PNG.sjmun04200/%EA%B0%80%EC%88%98.png?type=w966");
+           background-size: cover;
+           background-position: center;
+
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+       }
+
+       .post {
+            max-width: 500px;
+            width: 95%;
+
+            margin: 20px auto 20px auto;
+
+            box-shadow: 0px 0px 3px 1px gray;
+            padding: 20px;
+       }
+
+       .btn {
+           margin-top: 20px;
+       }
+
+       .응원 {
+           max-width: 500px;
+           width: 95%;
+
+           margin: auto;
+       }
+       .응원 > .card {
+           margin-bottom: 10px;
+       }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+                data: {},
+                success: function (response) {
+                    $('#seoul').text(response['temp'])
+                }
+            })
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="title">
+        <h1>10cm&heize in life</h1>
+        <p>현재기온 : <span id="seoul">0</span>도</p>
+    </div>
+    <div class="post">
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">닉네임</label>
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                      style="height: 120px"></textarea>
+            <label for="floatingTextarea2">응원댓글</label>
+        </div>
+        <div class="select_btn">
+            <button type="button" class="btn btn-dark">응원 남기기</button>
+        </div>
+    </div>
+    <div class="응원">
+        <div class="card">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>권정열 개인콘 존버..</p>
+                    <footer class="blockquote-footer">너님에게 닿기를
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>헤이즈 이번 앨범 5만번 째 반복재생 중</p>
+                    <footer class="blockquote-footer">별님
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                    <p>오늘도 플레이리스트 조지고 알바가요</p>
+                    <footer class="blockquote-footer">♡센치헤이♡
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
